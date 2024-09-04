@@ -92,6 +92,7 @@ body {
 .group > p {
     text-align: center;
     font-size: 19px;
+    margin: 0 20px;
 }
 
 .group .marcadores{
@@ -206,6 +207,7 @@ p > a {
 
 .buttons-login > button:hover {
     background-color: #DDDDDD;
+    cursor: pointer;
 }
 
 .buttons-login > button > img {
@@ -215,7 +217,6 @@ p > a {
 }
 
 /* CREATE-ACCOUNT.HTML */
-
 .account {
     display: flex;
     flex-direction: row;
@@ -336,3 +337,128 @@ input[type="submit"] {
     color: #FFFFFF;
 }
 
+@media (max-width: 375px) {
+    /* INDEX.HTML */
+    .logo {
+        max-width: 170px;
+        max-height: 450px;
+    }
+    .loading {
+        max-width: 60px;
+    }
+
+    /* APRESENTACAO-X.HTML */
+    .apresentacao > figure > img {
+        max-width: 300px;
+    }
+    .group > p {
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .btn-back {
+        left: 30px;
+        top: 30px;
+    }
+
+    /* GET-START.HTML */
+    .start > h1 {
+        position: relative;
+        color: transparent;
+        font-weight: 600;
+    }
+    .start > h1::before {
+        content: "Let's you in";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        color: #000000;
+        text-align: center;
+    }
+    .buttons-login > button {
+        font-weight: 600;
+    }
+    p#or{
+        position: relative;
+        color: transparent;
+        font-weight: 700;
+        font-size: 20px;
+    }
+    p#or::before{
+        content: "or";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #000000;
+    }
+    button#btn{
+        position: relative;
+        color: transparent;
+    }
+    button#btn::before{
+        content: "Sign in with password";
+        color: #FFFFFF;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    p {
+        font-weight: 700;
+    }
+
+    /* CREATE-ACCOUNT.HTML */
+    form > h1 {
+        font-size: 35px;
+        line-height: 35px;
+        max-width: 200px;
+    }
+    .account {
+        margin: 0;
+        max-height: 100vh;
+    }
+    .account > img {
+        margin: 20px 0;
+    }
+    .account > .container {
+        box-shadow: none;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    /* CREATE-ACCOUNT.HTML */
+    form {
+        padding: 0 30px;
+    }
+    .account > .container {
+        width: 100%;
+    }
+    form > div.buttons {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* CREATE-ACCOUNT.HTML */
+    .account {
+        flex-direction: column;
+    }
+    .account > img {
+        max-width: 200px;
+    }
+    .account > .container {
+        padding: 20px 0;
+    }
+    form {
+        gap: 20px;
+    }
+    form > h1 {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 1440px) {
+
+}
