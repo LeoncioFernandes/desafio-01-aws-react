@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create your account</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body class="bg-FF6064">
+    <div class="account">
+        <img src="images/logo-pomo.png" />
+        <div class="container">
+            <form action="" method="get">
+                <h1>Create your account</h1>
+                <div class="labels">
+                    <div>
+                        <label for="name">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Name">
+                    </div>
+                    <div>
+                        <label for="email">E-mail</label>
+                        <input type="text" name="email" id="email" placeholder="E-mail">
+                    </div>
+                    <div>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" placeholder="Password">
+                    </div>
+                    <div>
+                        <label for="confirm-password">Confirm password</label>
+                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password">
+                    </div>
+                </div>
+                <div class="buttons">
+                    <button onclick="redirecionarUrl('get-start.html')">Go Back</button>
+                    <input type="submit" value="Create Account">
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="scripts/script.js"></script> 
+</body>
+</html>
