@@ -67,7 +67,8 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 50px
+    gap: 50px;
+    max-height: 100%;
 }
 
 .apresentacao > figure {
@@ -119,8 +120,9 @@ body {
 }
 
 .btn-next {
-    width: 336px;
-    height: 45px;
+    width: 100%;
+    max-width: 336px;
+    min-height: 45px;
     border: none;
     font-family: "Inter", sans-serif;
     font-size: 13px;
@@ -129,6 +131,7 @@ body {
     background-color: #FF6064;
     color: #FFFFFF;
     transition: box-shadow 0.2s ease;
+    margin-bottom: 10px;
 }
 
 .btn-next:hover {
@@ -139,7 +142,7 @@ body {
 .btn-back {
     position: absolute;
     left: 100px;
-    top: 100px;
+    top: 150px;
     width: 39px;
     height: auto;
     border: none;
@@ -165,13 +168,19 @@ body {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 60px
+    gap: 60px;
+    max-height: 100%;
+    padding: 60px 0;
 }
 
 .start > h1 {
     font-size: 38px;
     font-weight: 400;
     margin-bottom: 20px;
+}
+
+.start > p:not(#or){
+    padding-bottom: 10px;
 }
 
 .font15 {
@@ -237,13 +246,13 @@ p > a {
 
 .account > .container {
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100%;
     width: 500px;
     background-color: #FFFFFF;
     border-radius: 25px;
     box-shadow: 8px 8px 6px 0 rgb(0, 0, 0, 0.3);
+    overflow-y: auto;
 }
 
 form {
@@ -348,6 +357,10 @@ input[type="submit"] {
     }
 
     /* APRESENTACAO-X.HTML */
+    button.btn-back {
+        left: 20px;
+        top: 20px;
+    }
     .apresentacao > figure > img {
         max-width: 300px;
     }
@@ -355,53 +368,16 @@ input[type="submit"] {
         font-size: 30px;
         font-weight: 600;
     }
-    .btn-back {
-        left: 30px;
-        top: 30px;
-    }
 
     /* GET-START.HTML */
     .start > h1 {
-        position: relative;
-        color: transparent;
         font-weight: 600;
-    }
-    .start > h1::before {
-        content: "Let's you in";
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        color: #000000;
-        text-align: center;
     }
     .buttons-login > button {
         font-weight: 600;
     }
     p#or{
-        position: relative;
-        color: transparent;
-        font-weight: 700;
         font-size: 20px;
-    }
-    p#or::before{
-        content: "or";
-        position: absolute;
-        left: 0;
-        top: 0;
-        color: #000000;
-    }
-    button#btn{
-        position: relative;
-        color: transparent;
-    }
-    button#btn::before{
-        content: "Sign in with password";
-        color: #FFFFFF;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
     }
     p {
         font-weight: 700;
@@ -428,6 +404,12 @@ input[type="submit"] {
 }
 
 @media (max-width: 768px) {
+    /* APRESENTACAO-X.HTML */
+    .btn-back {
+        left: 40px;
+        top: 40px;
+    }
+
     /* CREATE-ACCOUNT.HTML */
     form {
         padding: 0 30px;
@@ -461,4 +443,11 @@ input[type="submit"] {
 
 @media (max-width: 1440px) {
 
+}
+
+@media (max-height: 730px) {
+    /* CREATE-ACCOUNT.HTML */
+    .account > .container {
+        display: block;
+    }
 }
