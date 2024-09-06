@@ -497,10 +497,3 @@ main > button:hover {
 @media (max-width: 1440px) {
 
 }
-
-@media (max-height: 730px) {
-    /* CREATE-ACCOUNT.HTML */
-    .account > .container {
-        display: block;
-    }
-}
