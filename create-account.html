@@ -9,8 +9,8 @@
 <body class="bg-FF6064">
     <div class="account">
         <img src="images/logo-pomo.png" />
-        <div class="container">
-            <form action="" method="get">
+        <!-- <div class="container"> -->
+            <form id="userCadForm" >
                 <h1>Create your account</h1>
                 <div class="labels">
                     <div>
@@ -26,16 +26,16 @@
                         <input type="password" name="password" id="password" placeholder="Password">
                     </div>
                     <div>
-                        <label for="confirm-password">Confirm password</label>
-                        <input type="password" name="confirm-password" id="confirm-password" placeholder="Confirm password">
+                        <label for="confirmPassword">Confirm password</label>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm password">
                     </div>
                 </div>
                 <div class="buttons">
-                    <button onclick="redirecionarUrl('get-start.html')">Go Back</button>
+                    <button type="button" onclick="redirecionarUrl('get-start.html')">Go Back</button>
                     <input type="submit" value="Create Account">
                 </div>
             </form>
-        </div>
+        <!-- </div> -->
     </div>
     <script src="scripts/script.js"></script> 
 </body>
