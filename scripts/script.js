@@ -14,16 +14,16 @@ const userEmail = document.getElementById("email");
 const userPassword = document.getElementById("password");
 const userConfirmPassword = document.getElementById("confirmPassword");
 
-userName.addEventListener('blur', () => {
+userName.addEventListener('keyup', () => {
     validarElemento(userName, "Name required");
 })
-userEmail.addEventListener('blur', () => {
+userEmail.addEventListener('keyup', () => {
     validarElemento(userEmail, "E-mail required");
 })
-userPassword.addEventListener('blur', () => {
+userPassword.addEventListener('keyup', () => {
     validarElemento(userPassword, "Password required");
 })
-userConfirmPassword.addEventListener('blur', () => {
+userConfirmPassword.addEventListener('keyup', () => {
     validarElemento(userConfirmPassword, "Confirm password required");
 })
 
@@ -40,7 +40,7 @@ userCadForm.addEventListener('submit', (e) => {
         userConfirmPassword.focus();
     }
     else{
-        saveFormData(userName.value, userEmail.value, userPassword.value);
+        saveFormData(userName.value.trim().toUpperCase(), userEmail.value.toLowerCase(), userPassword.value);
         redirecionarUrl("user-info.html");
     }   
 })
@@ -71,33 +71,32 @@ function validarElemento(element, text = "Required"){
 
     const span = document.createElement("span");
     const parent = element.parentElement;
-    const elPassword = document.getElementById("password");
-    const password = elPassword.value;
-    const elConfirmPassword = document.getElementById("confirmPassword");
-    const passwordConfirm = elConfirmPassword.value
-
+    const password = document.getElementById("password").value;
+    
     if(element.value == ""){
         addSpan(element, span, parent, text);
         return false;
     }else if(element.id == "name" && element.value.length <= 3){
-        addSpan(element, span, parent, "Name must have more than 3 characters");
+        addSpan(element, span, parent, "Name must have more than 3 characters.");
         return false;
-    }else if(element.id == "email" && !/\w+@\w+\.\w+/.test(element.value)){
-        addSpan(element, span, parent, "Invalid e-mail");
+    }else if(element.id == "name" && / {2,}/.test(element.value)){
+        addSpan(element, span, parent, "Name must not have repeated spaces.");
         return false;
-    }else if(element.id == "password" && element.value != passwordConfirm){
-        addSpan(element, span, parent, "Different passwords");
+    }else if(element.id == "email" && !/^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(element.value)){
+        addSpan(element, span, parent, "Invalid e-mail.");
+        return false;
+    }else if(element.id == "password" && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*(),.?":{}|<>]).+$/.test(element.value)){
+        addSpan(element, span, parent, "Password must contain: a digit, a lowercase letter, an uppercase letter and a special character.");
+        return false;
+    }else if(element.id == "password" && element.value.length < 6){
+        addSpan(element, span, parent, "Password must contain at least 6 characters.");
         return false;
     }else if(element.id == "confirmPassword" && element.value != password){
-        addSpan(element, span, parent, "Different passwords");
+        addSpan(element, span, parent, "Different passwords.");
         return false;
     }
     else{
         removeSpan(element, parent)
-        
-        removeSpan(elConfirmPassword, elConfirmPassword.parentElement);
-        removeSpan(elPassword, elPassword.parentElement);
-        
         return true;
     }
 }
